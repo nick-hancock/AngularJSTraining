@@ -30,12 +30,17 @@
       <form name="form" ng-submit="todoList.addTodo()" data-ref="todoForm">
         <label for="todoText">Add a new todo:</label>
         <input type="text" name="todoText" placeholder="Todo" 
-          ng-model="todoList.todoText" required ng-minlength="2">
+          ng-model="todoList.todoText" required ng-minlength="2" ng-maxlength="20">
         <span ng-show="form.todoText.$error.required">Required</span>
         <span ng-show="form.todoText.$error.minlength">Minimum length is 2</span>
+        <span ng-show="form.todoText.$error.maxlength">Maximum length is 20</span>
         
         <input type="submit" value="Add Todo" ng-disabled="form.$invalid">
       </form>
+
+      <p><input type="button" value="Delete completed" ng-click="todoList.deleteCompleted()"></p>
+      <p><input type="button" value="Delete all" ng-click="todoList.deleteAll()"></p>
+
     </article>
   </section>
   

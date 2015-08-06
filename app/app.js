@@ -1,5 +1,5 @@
 angular.module('todoApp', [])
-  .controller('TodoListController', function() {
+  .controller('TodoListController', function($filter) {
     this.todoText = '';
     
     this.todos = [
@@ -11,6 +11,14 @@ angular.module('todoApp', [])
       this.todos.push({text:this.todoText, done:false});
       this.todoText = '';
     };
+
+    this.deleteCompleted = function() {
+      this.todos = $filter('filter')(this.todos, {done:false});
+    };  
+
+    this.deleteAll = function() {
+      this.todos.length = 0;
+    };     
  
     this.uncompleted = function() {
       var count = 0;
