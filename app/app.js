@@ -19,6 +19,10 @@ angular.module('todoApp', [])
     this.deleteAll = function() {
       this.todos.length = 0;
     };     
+
+    this.delete = function(idx) {
+      this.todos.splice(idx, 1)
+    }
  
     this.uncompleted = function() {
       var count = 0;

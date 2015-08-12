@@ -24,6 +24,7 @@
 
       <ul data-ref="todoList">
         <li  class="list-group-item" ng-repeat="todo in todoList.todos | filter:searchText">
+          <input type="button" value="Delete" ng-click="todoList.delete($index)">
           <input type="checkbox" ng-model="todo.done">
           <span class="done-{{todo.done}}">{{$index}} - {{todo.text}}</span>
         </li>
